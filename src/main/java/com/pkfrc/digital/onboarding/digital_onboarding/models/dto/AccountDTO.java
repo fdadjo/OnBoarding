@@ -20,6 +20,12 @@ public class AccountDTO implements Serializable {
     @ApiModelProperty(notes = "Surname of ser")
     private String signature;
 
+    @ApiModelProperty(notes = "Surname of ser")
+    private String login;
+
+    @ApiModelProperty(notes = "Surname of ser")
+    private String email;
+
     public String getFirstName() {
         return firstName;
     }
@@ -44,6 +50,22 @@ public class AccountDTO implements Serializable {
         this.id = id;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getSignature() {
         return signature;
     }
@@ -61,15 +83,5 @@ public class AccountDTO implements Serializable {
 
     public AccountDTO(Account account) {
         this.id = account.getId();
-    }
-
-    @Override
-    public String toString() {
-        return "AccountDTO{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", signature='" + signature + '\'' +
-                '}';
     }
 }

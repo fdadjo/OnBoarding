@@ -20,16 +20,6 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
-                .build().apiInfo(apiEndPointsInfo());
-    }
-
-    private ApiInfo apiEndPointsInfo() {
-        return new ApiInfoBuilder().title("Spring Boot REST API")
-                .description("Digital OnBoarding REST API")
-                .contact(new Contact("PKF Research Center", "www.pkfresearchcenter.net", "contact@pkf-research-center.com"))
-                .license("Apache 2.0")
-                .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
-                .version("1.0.0")
                 .build();
     }
 }

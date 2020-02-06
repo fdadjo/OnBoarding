@@ -8,6 +8,7 @@ import java.util.Objects;
 
 public class UserDTO  {
     private Long id;
+    private String login;
     private String firstName;
     private String lastName;
     private String password;
@@ -28,7 +29,7 @@ public class UserDTO  {
        this.id = user.getId();
        this.firstName = user.getFirstName();
        this.lastName = user.getLastName();
-       this.email = user.getEmail();
+       //this.email = user.getEmail();
     }
 
     public Long getId() {
@@ -37,6 +38,14 @@ public class UserDTO  {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getPassword() {

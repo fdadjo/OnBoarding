@@ -46,6 +46,8 @@ public class AccountServiceImpl implements AccountService {
         UserDTO userDTO = new UserDTO();
         userDTO.setLastName(accountDTO.getLastName());
         userDTO.setFirstName(accountDTO.getFirstName());
+        userDTO.setEmail(accountDTO.getEmail());
+        userDTO.setLogin(accountDTO.getLogin());
         UserDTO userDTO1 = userServiceImpl.create(userDTO);
 
         if (userDTO1.getId() != null) {
@@ -79,7 +81,7 @@ public class AccountServiceImpl implements AccountService {
             ByteArrayInputStream bis = new ByteArrayInputStream(imageByte);
             image = ImageIO.read(bis);
             try {
-                File outputfile = new File(any + "pictureTest.png");
+                File outputfile = new File(any + "pxxxxxictureTest.png");
                 any = any + 1;
                 ImageIO.write(image, "png", outputfile);
             } catch (IOException e) {
