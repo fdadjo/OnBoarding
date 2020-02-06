@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -30,5 +31,10 @@ public class UserServiceImpl implements UserService {
         user.setEmail(userDTO.getEmail());
 
         return new UserDTO(userRepository.save(user));
+    }
+
+    public User findById( Long id ) {
+        Optional<User> user = userRepository.findById( id );
+        return user.orElse(null);
     }
 }

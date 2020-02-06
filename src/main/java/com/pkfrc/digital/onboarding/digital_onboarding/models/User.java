@@ -15,7 +15,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "t_user")
 @ApiModel(description = "All details about the User.")
-public class User extends AbstractAuditing {
+public class User extends AbstractAuditing{
 
     @Column(unique = true)
     private String login;

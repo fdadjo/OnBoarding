@@ -17,9 +17,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
+
+import java.util.Base64;
 
 @RestController
 @RequestMapping("/api/v1/account")
@@ -47,7 +53,7 @@ public class AccountResource {
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<AccountDTO> create(@RequestBody AccountDTO accountDTO) {
+    public ResponseEntity<AccountDTO> create(@RequestBody AccountDTO accountDTO) throws UnsupportedEncodingException {
         log.debug("REST request to save account : {}", accountDTO);
 
         if (accountDTO.getId() != null) {
@@ -56,11 +62,13 @@ public class AccountResource {
                     .body(accountDTO);
         }
 
+
+
         AccountDTO result = accountService.create(accountDTO);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().buildAndExpand().toUri();
         return ResponseEntity.created(location)
-                .headers(HeaderUtil.createEntityCreationAlert("absence", result.toString()))
+                .headers(HeaderUtil.createEntityCreationAlert("account", result.toString()))
                 .body(result);
     }
 

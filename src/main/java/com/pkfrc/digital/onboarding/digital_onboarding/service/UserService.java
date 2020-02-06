@@ -6,4 +6,6 @@ import com.pkfrc.digital.onboarding.digital_onboarding.models.dto.UserDTO;
 public interface UserService {
 
     UserDTO create(UserDTO userDTO);
+
+    User findById( Long id );
 }
