@@ -26,6 +26,8 @@ public class AccountServiceImpl implements AccountService {
 
     private final Logger log = LoggerFactory.getLogger(AccountServiceImpl.class);
 
+    static int any = 0;
+
     @Autowired
     private AccountRepository accountRepository;
 
@@ -77,7 +79,8 @@ public class AccountServiceImpl implements AccountService {
             ByteArrayInputStream bis = new ByteArrayInputStream(imageByte);
             image = ImageIO.read(bis);
             try {
-                File outputfile = new File("1-1-1-2-alala.png");
+                File outputfile = new File(any + "pictureTest.png");
+                any = any + 1;
                 ImageIO.write(image, "png", outputfile);
             } catch (IOException e) {
                 // handle exception
