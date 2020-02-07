@@ -75,9 +75,12 @@ public class AccountServiceImpl implements AccountService {
 
         BufferedImage image = null;
         byte[] imageByte;
+        String[] url = imageString.split(",");
+        String baseUrl = url[1];
         try {
             BASE64Decoder decoder = new BASE64Decoder();
-            imageByte = decoder.decodeBuffer(imageString);
+
+            imageByte = decoder.decodeBuffer(baseUrl);
             ByteArrayInputStream bis = new ByteArrayInputStream(imageByte);
             image = ImageIO.read(bis);
             try {
