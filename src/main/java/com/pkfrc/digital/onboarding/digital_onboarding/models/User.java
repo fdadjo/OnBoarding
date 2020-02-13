@@ -14,7 +14,6 @@ import java.util.*;
 @Entity
 @Table(name = "t_user")
 @ApiModel(description = "All details about the User.")
-
 public class User extends AbstractAuditing implements UserDetails {
 
     @Column(unique = true)
@@ -23,6 +22,12 @@ public class User extends AbstractAuditing implements UserDetails {
     private String firstName;
     @Column
     private String lastName;
+    @Column
+    private String email;
+    @Column
+    private String namePicture;
+    @Column
+    private ZonedDateTime date;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", orphanRemoval = true)
     private List<Account> accountList = new ArrayList<>();
@@ -35,7 +40,7 @@ public class User extends AbstractAuditing implements UserDetails {
         //this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        //this.email = email;
+        this.email = email;
         //this.userType = userType;
         //this.langKey = langKey;
         this.accountList = accountList;
@@ -71,6 +76,30 @@ public class User extends AbstractAuditing implements UserDetails {
 
     public void setAccountList(List<Account> accountList) {
         this.accountList = accountList;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getNamePicture() {
+        return namePicture;
+    }
+
+    public void setNamePicture(String namePicture) {
+        this.namePicture = namePicture;
+    }
+
+    public ZonedDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(ZonedDateTime date) {
+        this.date = date;
     }
 
     @Override

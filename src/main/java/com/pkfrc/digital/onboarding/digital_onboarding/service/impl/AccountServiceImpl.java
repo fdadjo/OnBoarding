@@ -20,6 +20,7 @@ import sun.misc.BASE64Decoder;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.time.ZonedDateTime;
 
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -48,6 +49,18 @@ public class AccountServiceImpl implements AccountService {
         userDTO.setFirstName(accountDTO.getFirstName());
         userDTO.setEmail(accountDTO.getEmail());
         userDTO.setLogin(accountDTO.getLogin());
+        userDTO.setNamePicture(accountDTO.getNamePicture());
+
+        ZonedDateTime zonedDateTime = ZonedDateTime.parse(accountDTO.getDate().toString() + "T08:00:00+00:00[Europe/London]");
+
+        userDTO.setDate(zonedDateTime);
+        userDTO.setPicture("a," + accountDTO.getPicture());
+
+
+        if(userDTO.getPicture() != null){
+            BufferedImage picture1 = accountService.decodeToImage(userDTO.getPicture());
+        }
+
         UserDTO userDTO1 = userServiceImpl.create(userDTO);
 
         if (userDTO1.getId() != null) {
@@ -94,6 +107,6 @@ public class AccountServiceImpl implements AccountService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return image;
+            return image;
     }
 }

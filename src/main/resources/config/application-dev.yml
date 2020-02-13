@@ -43,6 +43,10 @@ spring:
         cache-seconds: 1
     thymeleaf:
         cache: false
+    # Hibernate ddl auto (create, create-drop, validate, update)
+    jpa:
+        hibernate:
+            ddl-auto: create-drop
 
 liquibase:
     contexts: dev

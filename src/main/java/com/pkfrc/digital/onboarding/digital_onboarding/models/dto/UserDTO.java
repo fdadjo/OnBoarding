@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pkfrc.digital.onboarding.digital_onboarding.models.User;
 
 import javax.persistence.Column;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 
 public class UserDTO  {
@@ -13,6 +14,9 @@ public class UserDTO  {
     private String lastName;
     private String password;
     private String email;
+    private String picture;
+    private String namePicture;
+    private ZonedDateTime date;
 
     public UserDTO() {
     }
@@ -78,6 +82,30 @@ public class UserDTO  {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public String getNamePicture() {
+        return namePicture;
+    }
+
+    public void setNamePicture(String namePicture) {
+        this.namePicture = namePicture;
+    }
+
+    public ZonedDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(ZonedDateTime date) {
+        this.date = date;
     }
 
     @Override

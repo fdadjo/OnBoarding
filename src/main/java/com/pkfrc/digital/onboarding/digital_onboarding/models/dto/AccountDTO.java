@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pkfrc.digital.onboarding.digital_onboarding.models.Account;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.persistence.Column;
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 
 public class AccountDTO implements Serializable {
 
@@ -25,6 +27,16 @@ public class AccountDTO implements Serializable {
 
     @ApiModelProperty(notes = "Surname of ser")
     private String email;
+
+    @ApiModelProperty(notes = "Picture")
+    private String picture;
+
+    @ApiModelProperty(notes = "name of picture")
+    private String namePicture;
+
+    @ApiModelProperty(notes = "Birth date")
+    private String date;
+
 
     public String getFirstName() {
         return firstName;
@@ -72,6 +84,30 @@ public class AccountDTO implements Serializable {
 
     public void setSignature(String signature) {
         this.signature = signature;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public String getNamePicture() {
+        return namePicture;
+    }
+
+    public void setNamePicture(String namePicture) {
+        this.namePicture = namePicture;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public AccountDTO() {
